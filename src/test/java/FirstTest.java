@@ -7,7 +7,7 @@ public class FirstTest extends TestBase {
   @Test
 
   public void myFirstTest() {
-    driver.navigate().to("https://yandex.ru/");
+    driver.get("https://yandex.ru/");
     driver.findElement(By.id("text")).sendKeys("maven");
     driver.findElement(By.cssSelector(".search2")).submit();
     wait.until(titleContains("maven — Яндекс"));
