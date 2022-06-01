@@ -1,2 +1,4 @@
 
 out/test/classes/LoginTest.class
+out/test/classes/LoginTest.class
+*.class
