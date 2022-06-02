@@ -21,9 +21,10 @@ public class LoginTest extends TestBase {
       Assert.assertTrue(helperBase.isElementPresent(driver, By.cssSelector("h1")));
       if (helperBase.isElementPresent(driver, By.xpath(path + "/ul[@class='docs']"))) {
         List<WebElement> elements = driver.findElements(By.xpath(path + "/ul[@class='docs']/li"));
-        for (int l = 1; l < elements.size()+1; l++)
+        for (int l = 1; l <= elements.size(); l++) {
           navigation.click(By.xpath(path + "/ul[@class='docs']/li[" + l + "]/a"));
-        Assert.assertTrue(helperBase.isElementPresent(driver, By.cssSelector("h1")));
+          Assert.assertTrue(helperBase.isElementPresent(driver, By.cssSelector("h1")));
+        }
       }
     }
   }
