@@ -23,19 +23,26 @@ public class HelperBase {
     }
   }
 
-  public boolean isStickerPresent(WebElement webelement) {
-    WebElement stickerNew = null;
-    WebElement stickerSale = null;
+//  public boolean isStickerPresent(WebElement webelement) {
+//    try {
+//      stickerNew = webelement.findElement(By.className("sticker"));
+//    } catch (NoSuchElementException ex) {
+//    }
+//    try {
+//      stickerSale = webelement.findElement(By.className("sticker sale"));
+//    } catch (NoSuchElementException ex) {
+//    }
+//    return ( Objects.isNull(stickerNew) && Objects.nonNull(stickerSale)) ||
+//            (Objects.nonNull(stickerNew) && Objects.isNull(stickerSale));
+//  }
+
+  public boolean isElementPresent2(WebDriver driver, WebElement locator) {
     try {
-      stickerNew = webelement.findElement(By.className("sticker new"));
+      locator.findElement(By.className("sticker"));
+      return true;
     } catch (NoSuchElementException ex) {
+      return false;
     }
-    try {
-      stickerSale = webelement.findElement(By.className("sticker sale"));
-    } catch (NoSuchElementException ex) {
-    }
-    return ( Objects.isNull(stickerNew) && Objects.nonNull(stickerSale)) ||
-            (Objects.nonNull(stickerNew) && Objects.isNull(stickerSale));
   }
 
 }

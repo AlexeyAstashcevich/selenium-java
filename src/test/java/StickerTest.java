@@ -11,8 +11,9 @@ public class StickerTest extends TestBase {
     navigation.gotTo("http://localhost/litecart/");
     List<WebElement> ducks = driver.findElements(By.cssSelector("a.link[href*='ducks']"));
     for (WebElement duck : ducks) {
-//      String ducky = duck.findElement(By.className("sticker new")).toString();
-      Assert.assertTrue(helperBase.isStickerPresent(duck));
+      Assert.assertTrue(helperBase.isElementPresent2(driver,duck));
+      List<WebElement> duckList =duck.findElements(By.className("sticker"));
+      Assert.assertEquals(duckList.size(),1);
     }
   }
 }
