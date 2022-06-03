@@ -15,7 +15,8 @@ public class LoginTest extends TestBase {
     navigation.type(By.name("password"), "admin");
     navigation.click(By.name("login"));
     wait.until(titleIs("My Store"));
-    for (int i = 1; i < 18; i++) {
+    List<WebElement> fields = driver.findElements(By.id("app-"));
+    for (int i = 1; i < fields.size(); i++) {
       String path = "//li[@id='app-'][" + i + "]";
       navigation.click(By.xpath(path));
       Assert.assertTrue(helperBase.isElementPresent(driver, By.cssSelector("h1")));

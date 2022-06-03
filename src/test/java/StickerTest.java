@@ -9,7 +9,7 @@ public class StickerTest extends TestBase {
   @Test
   public void stickerTest() {
     navigation.gotTo("http://localhost/litecart/");
-    List<WebElement> ducks = driver.findElements(By.cssSelector("a.link[href*='ducks']"));
+    List<WebElement> ducks = driver.findElements(By.className("product"));
     for (WebElement duck : ducks) {
       Assert.assertTrue(helperBase.isElementPresent2(driver,duck));
       List<WebElement> duckList =duck.findElements(By.className("sticker"));
