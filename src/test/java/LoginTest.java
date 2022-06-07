@@ -10,10 +10,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 public class LoginTest extends TestBase {
   @Test
   public void loginTest() {
-    navigation.gotTo("http://localhost/litecart/admin/");
-    navigation.type(By.name("username"), "admin");
-    navigation.type(By.name("password"), "admin");
-    navigation.click(By.name("login"));
+    login();
     wait.until(titleIs("My Store"));
     List<WebElement> fields = driver.findElements(By.id("app-"));
     for (int i = 1; i < fields.size(); i++) {
@@ -29,4 +26,5 @@ public class LoginTest extends TestBase {
       }
     }
   }
+
 }

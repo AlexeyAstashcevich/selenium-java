@@ -1,5 +1,6 @@
 import applicationManager.HelperBase;
 import applicationManager.NavigationHelper;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,5 +27,12 @@ public class TestBase {
   public void stop() {
     driver.quit();
     driver = null;
+  }
+
+  protected void login() {
+    navigation.gotTo("http://localhost/litecart/admin/");
+    navigation.type(By.name("username"), "admin");
+    navigation.type(By.name("password"), "admin");
+    navigation.click(By.name("login"));
   }
 }
