@@ -17,26 +17,28 @@ public class LettersSortTest extends TestBase {
     List<WebElement> countries = driver.findElements(By.xpath("//*[@class='row']/td[5]/a"));
     List<String> countryList = new ArrayList<>();
     for (WebElement wec : countries) {
-        countryList.add(wec.getText());
-        WebElement countriesInside = wec.findElement(By.xpath("..//..//td[6]"));
+      countryList.add(wec.getText());
+      ArrayList<String> countrySorted = (ArrayList<String>) countryList;
+      Collections.sort(countrySorted);
+      Assert.assertEquals(countrySorted, countryList);
+    }
+    for (WebElement wek: countries){
+        WebElement countriesInside = wek.findElement(By.xpath("..//..//td[6]"));
         if (!countriesInside.getText().equals("0")) {
           List<String> insideCountry = new ArrayList<>();
-          wec.click();
-          List<WebElement> list = driver.findElements(By.cssSelector("tbody input[name=zone]"));
+          wek.click();
+          List<WebElement> list = driver.findElements(By.xpath("*//tr/td[3]"));
           for (WebElement ins:list){
-            insideCountry.add( ins.getText());
+            insideCountry.add( ins.getAttribute("textContent"));
           }
           ArrayList<String> insideCountrySorted = (ArrayList<String>) insideCountry;
           Collections.sort(insideCountrySorted);
           Assert.assertEquals(insideCountry,insideCountrySorted );
-          list.removeAll(list);
-          insideCountry.removeAll(insideCountry);
-          insideCountrySorted.removeAll(insideCountrySorted);
+//          list.removeAll(list);
+//          insideCountry.removeAll(insideCountry);
+//          insideCountrySorted.removeAll(insideCountrySorted);
           navigation.gotTo("http://localhost/litecart/admin/?app=countries&doc=countries");
         }
       }
-    ArrayList<String> countrySorted = (ArrayList<String>) countryList;
-    Collections.sort(countrySorted);
-    Assert.assertEquals(countrySorted, countryList);
   }
 }
