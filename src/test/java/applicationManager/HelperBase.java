@@ -5,6 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+
 public class HelperBase {
   WebDriver driver;
 
@@ -42,6 +43,6 @@ public class HelperBase {
       return false;
     }
   }
-
 }
+
 

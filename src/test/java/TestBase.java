@@ -2,7 +2,6 @@ import applicationManager.HelperBase;
 import applicationManager.NavigationHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -20,7 +19,7 @@ public class TestBase {
     driver = new FirefoxDriver();
     wait = new WebDriverWait(driver, 10);
     helperBase = new HelperBase(driver);
-    navigation= new NavigationHelper(driver);
+    navigation = new NavigationHelper(driver);
   }
 
   @AfterSuite
@@ -34,5 +33,7 @@ public class TestBase {
     navigation.type(By.name("username"), "admin");
     navigation.type(By.name("password"), "admin");
     navigation.click(By.name("login"));
+
+
   }
 }
