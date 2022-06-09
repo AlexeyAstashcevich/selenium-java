@@ -22,6 +22,7 @@ public class HelperBase {
     }
   }
 
+
 //  public boolean isStickerPresent(WebElement webelement) {
 //    try {
 //      stickerNew = webelement.findElement(By.className("sticker"));
@@ -43,6 +44,7 @@ public class HelperBase {
       return false;
     }
   }
+
 }
 
 
