@@ -1,5 +1,6 @@
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -25,11 +26,12 @@ public class LettersSortTest extends TestBase {
     for (WebElement wek: countries){
         WebElement countriesInside = wek.findElement(By.xpath("..//..//td[6]"));
         if (!countriesInside.getText().equals("0")) {
+          driver.findElement(By.cssSelector("Body")).sendKeys(Keys.CONTROL + "t");
+          driver.navigate().to(countriesInside.getAttribute("baseURI"));
           List<String> insideCountry = new ArrayList<>();
-          wek.click();
-          List<WebElement> list = driver.findElements(By.xpath("*//tr/td[3]"));
+          List<WebElement> list = driver.findElements(By.xpath("*//tr/td[3]/input[@type='hidden']"));
           for (WebElement ins:list){
-            insideCountry.add( ins.getAttribute("textContent"));
+            insideCountry.add( ins.getAttribute("defaultValue"));
           }
           ArrayList<String> insideCountrySorted = (ArrayList<String>) insideCountry;
           Collections.sort(insideCountrySorted);
@@ -37,8 +39,9 @@ public class LettersSortTest extends TestBase {
 //          list.removeAll(list);
 //          insideCountry.removeAll(insideCountry);
 //          insideCountrySorted.removeAll(insideCountrySorted);
-          navigation.gotTo("http://localhost/litecart/admin/?app=countries&doc=countries");
+          driver.navigate().back();
         }
+
       }
   }
 }
