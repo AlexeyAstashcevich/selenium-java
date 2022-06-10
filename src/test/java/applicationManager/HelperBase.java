@@ -23,19 +23,6 @@ public class HelperBase {
   }
 
 
-//  public boolean isStickerPresent(WebElement webelement) {
-//    try {
-//      stickerNew = webelement.findElement(By.className("sticker"));
-//    } catch (NoSuchElementException ex) {
-//    }
-//    try {
-//      stickerSale = webelement.findElement(By.className("sticker sale"));
-//    } catch (NoSuchElementException ex) {
-//    }
-//    return ( Objects.isNull(stickerNew) && Objects.nonNull(stickerSale)) ||
-//            (Objects.nonNull(stickerNew) && Objects.isNull(stickerSale));
-//  }
-
   public boolean isElementPresent2(WebDriver driver, WebElement locator) {
     try {
       locator.findElement(By.className("sticker"));
