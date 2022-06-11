@@ -39,7 +39,6 @@ public class AdminHelper extends HelperBase {
     navigation.type(By.name("quantity"), Keys.HOME+"25");
     navigation.addPhoto(By.name("new_images[]"), "src/test/resources/duck.jpg");
     navigation.click(By.name("date_valid_from"));
-    js.executeAsyncScript( String.Format("$('{0}').datepicker('setDate', '{1}')", "#tab-general > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(10) > td:nth-child(1) > input:nth-child(3)", date));
     navigation.type(By.name("date_valid_from"), Keys.HOME+"01011991");
     navigation.click(By.name("date_valid_to"));
     navigation.type(By.name("date_valid_to"), Keys.HOME+"02021992");
