@@ -12,7 +12,7 @@ import java.util.List;
 public class LettersSortTest extends TestBase {
     @Test
     public void sortTest() {
-        login();
+        admin.login();
         navigation.gotTo("http://localhost/litecart/admin/?app=countries&doc=countries");
         List<WebElement> countries = driver.findElements(By.xpath("//*[@class='row']/td[5]/a"));
         List<String> countryList = new ArrayList<>();

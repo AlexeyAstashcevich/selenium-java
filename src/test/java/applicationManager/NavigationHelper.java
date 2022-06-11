@@ -5,8 +5,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+
 public class NavigationHelper extends HelperBase {
-  private HelperBase helperBase;
   String email = "piter"+System.currentTimeMillis()+"@yandex.ru";
 
   public NavigationHelper(WebDriver driver) {
@@ -27,6 +28,10 @@ public class NavigationHelper extends HelperBase {
 
   protected void select(By locator, String text) {
     new Select(driver.findElement(locator)).selectByVisibleText(text);
+  }
+
+  protected void addPhoto(By link, String directory) {
+    driver.findElement(link).sendKeys(new File(directory).getAbsolutePath());
   }
 
   public void registerNewCostumer() {

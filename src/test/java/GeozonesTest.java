@@ -10,7 +10,7 @@ public class GeozonesTest extends TestBase{
     @Test
 
     public void geoTest(){
-        login();
+        admin.login();
         navigation.gotTo("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
         List<WebElement> countries = driver.findElements(By.xpath("//*[@class='row']/td[3]/a"));
         List<String> coutriesUrl = new ArrayList<>();

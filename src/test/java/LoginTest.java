@@ -10,7 +10,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 public class LoginTest extends TestBase {
   @Test
   public void loginTest() {
-    login();
+    admin.login();
     wait.until(titleIs("My Store"));
     List<WebElement> fields = driver.findElements(By.id("app-"));
     for (int i = 1; i < fields.size(); i++) {
