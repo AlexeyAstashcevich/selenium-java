@@ -42,10 +42,6 @@ public class AdminHelper extends HelperBase {
     navigation.type(By.name("date_valid_from"), Keys.HOME+"01011991");
     navigation.click(By.name("date_valid_to"));
     navigation.type(By.name("date_valid_to"), Keys.HOME+"02021992");
-
-
-
-
   }
 
   public void dillInformationPage() {

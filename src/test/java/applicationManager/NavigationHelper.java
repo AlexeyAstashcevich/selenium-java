@@ -26,7 +26,7 @@ public class NavigationHelper extends HelperBase {
     driver.findElement(locator).sendKeys(text);
   }
 
-  protected void select(By locator, String text) {
+  public void select(By locator, String text) {
     new Select(driver.findElement(locator)).selectByVisibleText(text);
   }
 
