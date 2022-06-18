@@ -3,6 +3,7 @@ import applicationManager.HelperBase;
 import applicationManager.NavigationHelper;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -20,7 +21,7 @@ public class TestBase {
   @BeforeSuite
   public void start() {
 
-    driver = new FirefoxDriver();
+    driver = new ChromeDriver();
     wait = new WebDriverWait(driver, 10);
     helperBase = new HelperBase(driver);
     navigation = new NavigationHelper(driver);

@@ -21,6 +21,9 @@ public class NewWindowTest extends TestBase{
         for (WebElement link: links){
             link.click();
             String newWindow = wait.until(anyWindowOtherThan(oldWindows));
+            driver.switchTo().window(newWindow);
+            driver.close();
+            driver.switchTo().window(mainWindow);
         }
 
 
