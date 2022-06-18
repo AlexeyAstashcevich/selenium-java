@@ -23,9 +23,9 @@ public class HelperBase {
   }
 
 
-  public boolean isElementPresent2(WebDriver driver, WebElement locator) {
+  public boolean isElementPresent2(WebElement stickers) {
     try {
-      locator.findElement(By.className("sticker"));
+      stickers.findElement(By.className("sticker"));
       return true;
     } catch (NoSuchElementException ex) {
       return false;

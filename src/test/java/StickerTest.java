@@ -11,7 +11,7 @@ public class StickerTest extends TestBase {
     navigation.gotTo("http://localhost/litecart/");
     List<WebElement> ducks = driver.findElements(By.className("product"));
     for (WebElement duck : ducks) {
-      Assert.assertTrue(helperBase.isElementPresent2(driver,duck));
+      Assert.assertTrue(helperBase.isElementPresent2(duck));
       List<WebElement> duckList =duck.findElements(By.className("sticker"));
       Assert.assertEquals(duckList.size(),1);
     }
