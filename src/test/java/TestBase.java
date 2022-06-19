@@ -33,7 +33,7 @@ public class TestBase {
     js = ((JavascriptExecutor)driver);
   }
 
-  @AfterSuite
+  @AfterSuite(alwaysRun = true)
   public void stop() {
     driver.quit();
     driver = null;
