@@ -16,6 +16,10 @@ public class LettersSortTest extends TestBase {
         String mainWindow = driver.getWindowHandle();
         Set<String> oldWindows = driver.getWindowHandles();
         List<WebElement> countries = driver.findElements(By.xpath("//*[@class='row']/td[5]/a"));
+        List<String> countriesString = new ArrayList<>(countries.stream().map(x->x.getText()).collect(Collectors.toList()));
+        List<String> countrySorted = new ArrayList<>(countriesString);
+        Collections.sort(countrySorted);
+        Assert.assertEquals(countriesString, countrySorted);
         for (WebElement wec : countries) {
             if (!wec.findElement(By.xpath("..//..//td[6]")).getText().equals("0")) {
                 String url = wec.findElement(By.xpath("..//..//td[5]/a")).getAttribute("href");
@@ -24,8 +28,9 @@ public class LettersSortTest extends TestBase {
                 driver.switchTo().window(newWindow);
                 navigation.gotTo(url);
                 List <String> list = driver.findElements(By.xpath("*//tbody//tbody//tr/td[3]/input[@type='hidden']"))
-                        .stream().map(x->x.getAttribute("defaultValue")).collect(Collectors.toList());
-                List<String> sortedList = list.stream().sorted().collect(Collectors.toList());
+                        .stream().map(x->x.getAttribute("value")).collect(Collectors.toList());
+                List<String> sortedList = new ArrayList<>(list);
+                Collections.sort(sortedList);
                 Assert.assertEquals(list, sortedList);
                 driver.close();
                 driver.switchTo().window(mainWindow);

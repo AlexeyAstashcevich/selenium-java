@@ -13,7 +13,7 @@ public class DucksPageValueTest extends TestBase {
     String color = duckLink.findElement(By.className("manufacturer")).getCssValue("color");
     String[] charsList = color.split(",");
 
-    Assert.assertEquals();
+//    Assert.assertEquals();
 
 
   }
