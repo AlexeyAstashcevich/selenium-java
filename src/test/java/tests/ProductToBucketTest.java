@@ -1,6 +1,7 @@
+package tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -41,6 +42,5 @@ public class ProductToBucketTest extends TestBase {
       }
       List<WebElement> checkBucket = driver.findElements(By.cssSelector("tr>td.item"));
       Assert.assertEquals(checkBucket.size(), 0);
-
   }
 }
