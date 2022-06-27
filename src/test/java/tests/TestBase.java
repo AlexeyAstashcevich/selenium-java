@@ -1,5 +1,7 @@
 package tests;
 
+import Pages.BucketPage;
+import Pages.HomePage;
 import applicationManager.AdminHelper;
 import applicationManager.HelperBase;
 import applicationManager.NavigationHelper;
@@ -20,6 +22,8 @@ import org.testng.annotations.BeforeSuite;
 import java.util.Set;
 
 public class TestBase {
+  public BucketPage bucketPage;
+  public HomePage homePage;
   public EventFiringWebDriver driver;
   public WebDriverWait wait;
   public HelperBase helperBase;
@@ -55,6 +59,8 @@ public class TestBase {
     navigation = new NavigationHelper(driver);
     admin = new AdminHelper(driver);
     js = ((JavascriptExecutor)driver);
+    homePage = new HomePage(driver,wait);
+    bucketPage = new BucketPage(driver,wait);
   }
 
   @AfterSuite(alwaysRun = true)
