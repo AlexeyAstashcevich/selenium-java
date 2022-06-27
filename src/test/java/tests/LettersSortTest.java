@@ -28,8 +28,9 @@ public class LettersSortTest extends TestBase {
                 String newWindow = wait.until(anyWindowOtherThan(oldWindows));
                 driver.switchTo().window(newWindow);
                 navigation.gotTo(url);
-                List <String> list = driver.findElements(By.xpath("*//tbody//tbody//tr/td[3]/input[@type='hidden']"))
-                        .stream().map(x->x.getAttribute("value")).collect(Collectors.toList());
+                List <String> list = driver.findElements(By.xpath("*//tbody//tbody//tr/td[3]"))
+                        .stream().map(x->x.getText()).collect(Collectors.toList());
+                list.remove("");
                 List<String> sortedList = new ArrayList<>(list);
                 Collections.sort(sortedList);
                 Assert.assertEquals(list, sortedList);
