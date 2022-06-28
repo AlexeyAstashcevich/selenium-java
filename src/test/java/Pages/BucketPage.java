@@ -21,4 +21,18 @@ public class BucketPage extends BasePage{
       wait.until(numberOfElementsToBeLessThan(By.cssSelector("tr>td.item"), ducksInBucket.size() - i));
     }
   }
+  public List<WebElement> getSumInBucketforCheck() {
+    List<WebElement> checkBucket = driver.findElements(By.cssSelector("tr>td.item"));
+    return checkBucket;
+  }
+
+  public List<WebElement> getSumInBacketForRemove() {
+    List<WebElement> ducksInBucket = getSumInBucketforCheck();
+    return ducksInBucket;
+  }
+
+  public int getSumOfDucksInBucketBeforeTest() {
+    int sumOfDucks = Integer.parseInt(driver.findElement(By.cssSelector("span.quantity")).getText());
+    return sumOfDucks;
+  }
 }

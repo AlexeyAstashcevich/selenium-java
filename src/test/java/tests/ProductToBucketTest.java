@@ -11,12 +11,14 @@ public class ProductToBucketTest extends TestBase {
   @Test
   public void bucketTest() {
     navigation.gotTo("http://localhost/litecart/");
-    int sumOfDucks = Integer.parseInt(driver.findElement(By.cssSelector("span.quantity")).getText());
+    int sumOfDucks = bucketPage.getSumOfDucksInBucketBeforeTest();
     homePage.addDucksToBucket(sumOfDucks);
     homePage.goToBucket();
-    List<WebElement> ducksInBucket = driver.findElements(By.cssSelector("tr>td.item"));
+    List<WebElement> ducksInBucket =bucketPage.getSumInBacketForRemove();
     bucketPage.deleteDucksFromBucket(ducksInBucket);
-    List<WebElement> checkBucket = driver.findElements(By.cssSelector("tr>td.item"));
+    List<WebElement> checkBucket = bucketPage.getSumInBucketforCheck();
     Assert.assertEquals(checkBucket.size(), 0);
   }
+
+
 }
